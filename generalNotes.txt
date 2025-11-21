@@ -1,0 +1,21 @@
+Notes on project/application:
+
+PROBLEM 1 - Custom Field Documentation
+-Add video I create running through/demonstrating
+
+
+
+
+PROBLEM 2
+-Perhaps try to recreate DB error on own personal machine / VM
+
+
+
+
+
+
+PROBLEM 3 - LIVE LOOKUP
+-Helpspot account requires work email (custom domain after @); Perhaps give users a test account?
+-Used cloudflare to redirect jaxon@mydomain.com to my personal (jaxon@jaxonville.com -> jaxon.dupre@gmail.com)
+
+
