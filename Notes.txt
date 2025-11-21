@@ -1,0 +1,32 @@
+Verified working via https://jaxonhelpspot.helpspot.com/ and a local Virtual-Machine to process.
+I have hidden the endpoint (helpspot.jaxonville.com) behind ZeroTrust for now, but excited to demonstrate if need be!
+
+1) Receive request
+   - HelpSpot calls livelookup.php with GET params like first_name, last_name, email, or customer_id.
+
+2) Build a search term
+   - If first_name or last_name present: combine them.
+   - Else if email present: use email.
+   - Else if customer_id present: use that.
+
+3) Call external API
+   - Query https://dummyjson.com/users/search?q={searchTerm} with cURL.
+   - Expect JSON with an array of users in data.users.
+
+4) Parse results
+   - Decode JSON; if HTTP not 200 or empty, treat as no results.
+
+5) Build HelpSpot XML
+   - Create <livelookup> response.
+   - For each user, add <customer> with:
+     - <customer_id> (user id)
+     - <first_name> (if available)
+     - <last_name> (if available)
+     - <email> (if available)
+     - <phone> (if available)
+
+6) Return response
+   - Return XML
+
+7) Error handling
+   - On exceptions or API failure, return an empty <livelookup> XML
